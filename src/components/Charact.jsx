@@ -1,7 +1,8 @@
 import React from "react";
 import { useState , useEffect } from "react";
-import getAllCharaters from "../source/api";
+import getAllCharaters from "../source/Getall";
 import '../styles/characts.css';
+import { Link } from "react-router-dom";
 export default function Gallery(){
 
     const [characters , setCharacers] = useState([]);
@@ -15,11 +16,11 @@ export default function Gallery(){
                 const path= character.thumbnail.path
                 const imgUrl = path+"/portrait_uncanny.jpg"
                 return(
-                    <div className="card" key={character.id}>
+                    <Link to={`/${character.id}`} className="card" key={character.id}>
                         <img src={imgUrl} alt="illustration du personnage" />
                         <h2 className="name">{character.name}</h2>
 
-                    </div>
+                    </Link>
                 )
             })}
 
