@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+header{
+    margin: 0;
+    margin-bottom: 10%;
+    border-bottom: 5px solid red;
+    display: flex;
+    justify-content: space-between;
+    max-height: 100px;
+    align-items: center;
+
+}
+.title{
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    font-size: 5em;
+}
+.logomarvel{
+    max-height: 100px;
+}
