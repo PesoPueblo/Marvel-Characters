@@ -1,16 +1,17 @@
 import React from 'react';
 import '../styles/App.css';
-import Header from '../components/header';
 import Gallery from '../components/Charact';
+import Details from '../components/details';
+import { Routes ,Route } from 'react-router-dom';
 
 function App(){
   
     return (
-      <div className="App">
-        <Header/>
-        <Gallery/>
-      </div>
-    );
+      <Routes>
+        <Route path='/' element={<Gallery/>}></Route>
+        <Route path='/:id' element={<Details/>}></Route>
+      </Routes>
+    )
   
 }
 
