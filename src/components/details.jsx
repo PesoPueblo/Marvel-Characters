@@ -1,20 +1,44 @@
 import { useState , useEffect } from "react";
-import getOneCharact from "../source/GetOne";
-
+import {URL,  params}  from "../source/general";
+import '../styles/details.css'
 export default function Details() {
     
     const [character, setCharacter]= useState([])
+    const [url, setUrl]=useState([])
+    const [comics , setComics]= useState([])
     useEffect(()=>{
-        getOneCharact.then(data=>{
+        let id= window.location.pathname
+        fetch(`${URL}${id}${params}`)
+        .then(data=>data.json())
+        .then(data=>{
             const infos= data.data.results;
-            setCharacter(infos[0])})
+            setCharacter(infos[0]);
+            setUrl(infos[0].thumbnail.path);
+            setComics(infos[0].comics.items)
+        })
+        .catch(Error=>console.log(Error))
         },[])
-        console.log(character);
-       /*  const imgUrl= character.thumbnail.path+"/portrait_uncanny.jpg"
-        console.log(imgUrl); */
+        const imgUrl= url+"/portrait_uncanny.jpg"
     return(
-        <div>
-            <h1 style={{color: "white"}}>  {character.name}</h1>
+        <main>
+        <div className="container"> 
+            <div className="card">
+                <img src={imgUrl} alt={character.name}/> 
+                <h1 style={{color: "white"}}className="name">  {character.name}</h1>
+            </div>
+            <div className="list">
+                <h2>Apparait dans :</h2>
+                <ul>
+                {comics.map((comic)=>{
+                    return(
+                        <li key={comic.resourceURI} className="comics">{comic.name}</li>
+                    )
+                })}
+
+                </ul>
+
+            </div>
         </div>
+        </main>
     )
 }

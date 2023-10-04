@@ -1,0 +1,29 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    border: 5px red solid;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 80%;
+    padding: 10px;
+}
+.container .card{
+    width: auto;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    min-width: 58%;
+
+}
+.comics{
+    flex-wrap: nowrap;
+}
