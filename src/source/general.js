@@ -6,7 +6,7 @@ const hash = md5(ts+privateKey+publicKey);
 
 
 export const URL= "https://gateway.marvel.com/v1/public/characters"
-export const params = `?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=100`
+export const params = `?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 
 
     export default {URL, params } 
